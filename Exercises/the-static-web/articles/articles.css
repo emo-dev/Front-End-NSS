@@ -1,0 +1,78 @@
+#article-1 {
+	background-color: lightblue;
+	font-size: .5em;
+	font-family: 'Arima Madurai', cursive;
+	color: #000000;
+	line-height: 150%;
+	padding: 1em;
+	border-radius: 100%;
+	text-align: center;
+	margin: auto 2em;
+}
+
+
+#article-2 {
+	background-color: red;
+	font-size: 1em;
+	font-family: 'Kumar One' ,cursive;
+	color: #444;
+	line-height: 105%%;
+	padding: 1.25em;
+	border-radius: 75%;
+	text-align: center;
+	margin: auto 2em;
+}
+
+
+#article-3 {
+	background-color: yellow;
+	font-size: 1.0em;
+	font-family: 'Lemonada' ,cursive;
+	color: #555;
+	line-height: 95%%;
+	padding: .5em;
+	border-radius: 50%;
+	text-align: center;
+	margin: auto 2em;
+}
+
+
+#article-4 {
+	background-color: purple;
+	font-size: 2em;
+	font-family: 'Open Sana Condensed ' ,cursive;
+	color: #666;
+	line-height: 100%;
+	padding: 1.75em;
+	border-radius: 25%;
+	text-align: center;
+	margin: auto 2em;
+}
+
+
+#article-5 {
+	background-color: grey;
+	font-size: 2.5em;
+	font-family: 'Indie Flower' ,cursive;
+	color: #000044;
+	line-height: 75%;
+	padding: .75em;
+	border-radius: 10%;
+	text-align: center;
+	margin: auto 2em;
+}
+
+.article {
+	margin: auto 50% auto 50%;
+}
+
+
+/*
+
+font-family: ;
+	font-size: ;
+	color: ;
+	padding: ;
+	border: ;	
+
+*/

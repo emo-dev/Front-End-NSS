@@ -1,0 +1,37 @@
+h2 {
+	text-align: center;
+}
+
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.content {
+	width: 30%;
+	border: 1px solid lightblue;
+	display: inline-block;
+	margin: auto;
+	padding: auto;
+}
+
+.colored-header {
+	border: 1px dotted lightgrey;
+}
+
+.description p {
+	text-align: justify;
+}
+
+.dimensions div p {
+	font-weight: bold;
+}
+
+.footer {
+	color: yellow;
+	background-color: darkgrey;
+}
+
+.images {
+	display: inline-block;
+}

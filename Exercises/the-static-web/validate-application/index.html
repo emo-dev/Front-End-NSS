@@ -1,0 +1,121 @@
+<!--
+
+This is a "banking form."
+The goal is to create a form that accepts user's 
+loan application. 
+
+This form requires the following fields: 
+1. Applicant first, middle, and last name (all separate)
+2. Applicant address
+3. Applicant occupation
+4. Applicant employer
+5. Type of loan select with the following options: 
+	i. Commercial
+	ii. real estate
+	iii. personal
+	iv. mortgage
+6. Requested amount of loan
+7. Radio button elements for loan length
+	i. 5 years
+	ii. 15 years
+	iii. 30 years
+8. Checkbox group for special conditions
+	i. I have a down payment
+	ii. Out-of state resident
+	iii. married
+	iv. Loan will be co-signed
+9. Text area to allow for additional comments
+10. Applicant email address
+11. Applicant telephone number
+12. Applicant LinkedIn url
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Banking Form</title>
+
+	<link href="validation.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body>
+	
+	<header class="header"><h1>Bank Form</h1></header>
+
+	<br><br>
+
+	<div id="section_1">
+		<form>
+			<fieldset>
+				<legend>Personal Info</legend>
+					First Name:<br>
+					<input type="text" name="firstname" required><br>
+					Last Name:<br>
+					<input type="text" name="lastname" required><br>
+					Middle Inital:<br>
+					<input type="text" name="middle_initial"><br>
+			</fieldset>
+			<br></br>
+
+			<fieldset>
+				<legend>More Information</legend>
+					Address:<br>
+					<input type="text" name="address" required><br>
+					Occupation:<br>
+					<input type="text" name="occupation" required><br>
+					Employer:<br>
+					<input type="text" name="employer" required><br>
+			</fieldset>
+			<br><br>
+
+			<div id="loan_type">
+				Loan Type:<br>
+				<input type="radio" name="commercial" value="commercial">Commerial<br>
+				<input type="radio" name="personal" value="personal">Personal<br>
+				<input type="radio" name="real-estate" value="real-estate">Real-estate<br>
+				<input type="radio" name="mortgage" value="mortgage">Mortgage<br>
+			</div>
+			<br>
+
+			<div id="requested_amount">
+				Requested Amount of Loan:<br>
+				<input type="text" name="loan_amount" required><br><br>
+			</div>
+
+				Loan Length in Years:<br>
+				<input type="radio" name="years" value="five_years">5<br>
+				<input type="radio" name="years" value="fifteen_years">15<br>
+				<input type="radio" name="years" value="thirty_years">30<br><br>
+
+
+				Special Conditions:<br>
+				<input type="checkbox" name="personal_downpayment" value="personal_downpayment">Personal down payment<br>
+				<input type="checkbox" name="out-of-state" value="out-of-state">Out-of-state resident<br>
+				<input type="checkbox" name="married" value="married">Married<br>
+				<input type="checkbox" name="co-signed" value="co-signed">Co-signed<br><br>
+
+				<div>
+					<textarea name="comments" id="comments">
+					Enter Comments Here..				
+					</textarea>
+				</div>
+				<br><br>
+
+				<legend>How Can We Reach You?</legend><br>
+					Email:<br>
+					<input type="email" name="email" required><br>
+					Telephone:<br>
+					<input type="text" name="telephone" required><br>
+					LinkedIn Account:<br>
+					<input type="URL" name="LinkedIn" required><br>
+
+		</form>
+	</div>
+
+
+</body>

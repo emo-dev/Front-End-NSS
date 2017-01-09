@@ -1,0 +1,16 @@
+form {
+	margin: 2em 35% 0 35%;
+}
+
+#converted-temp {
+	border: 2px solid grey;
+}
+
+#converted-temp > p {
+	margin: 0;
+}
+
+#temperature[value="Ex: 32"] {
+	color: grey;
+	font-style: italic;
+}

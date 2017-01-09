@@ -1,0 +1,13 @@
+a:hover {
+	color: blue;
+	background-color: pink;
+}
+
+li {
+	width: 100px;
+	height: 100px;
+}
+
+a:focus {
+	width: 110px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)file:///Users/taylorperkins/nss/Exercises/the-static-web/converter/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>Converter</title>
+	<link rel="stylesheet" type="text/css" href="./Converter_files/styles.css">
+</head>
+<body>
+
+	<form name="converter">
+		<fieldset>
+			<legend><h3>Temp Converter</h3></legend>
+			<label>Temperature</label>
+			<p><input id="temperature" type="text" name="temperature" required=""></p>
+			<div class="radio-buttons" required="">
+				<input type="radio" name="temp" id="fahrenheit">Fahrenheit<br>
+				<input type="radio" name="temp" id="celsius">Celsius<br>
+			</div>
+			<input type="button" name="reveal-temp" id="converter" value="Display Temp" onclick="checkDegrees()"><br>
+
+			<div>
+				<input type="text" name="converted-temp" id="converted-temp" disabled="">
+			</div>
+			<input type="reset" name="clear" value="clear"><br>
+		</fieldset>
+	</form>
+
+
+
+<script type="text/javascript" src="./Converter_files/converter.js"></script>
+</body></html>

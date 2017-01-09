@@ -1,0 +1,32 @@
+nav {
+	background-color: lightblue;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+}
+
+nav li {
+	display: inline;
+	float: left;
+	width: 20%;
+}
+
+nav li a {
+	display: block;
+	color: orange;
+	padding: 10px 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.clear {
+	clear: both;
+}
+
+
+
