@@ -1,5 +1,11 @@
 var scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
+var max = Math.max(...scores);
+console.log("Highest score: ", max);
+var min = Math.min(...scores);
+console.log("Lowest score: ", min);
+
 var scoresLength = scores.length;
+
 
 var grades = {
 	A: [],
@@ -36,36 +42,14 @@ for (var i = 0; i < scores.length; i++) {
 function countingGrades() {
 	console.log("Now trying to iterate through the grades object.")
 	for (var property in grades) {
-		console.log("property", property, "grades", grades[property][0]);
 		if (grades[property].length >= 1) {
-			console.log(grades[property].length);
-			// var node = document.("The number of " + property + "'s is: " + grades[property].length);
-			div.innerHTML = ("The number of " + property + "'s is: " + grades[property].length);
-			div.className = "score";
-			element.appendChild(div);
-			console.log("done");
-		}
+			console.log("Key length in grades obj " + property + ":", grades[property].length);
+			// var node = document.("The number of " + property + "'s is: " + grades[property].length);			div.className = "score";
+			div.className = "score"; 
+			element.appendChild(div);		}
+
+		div.innerHTML += ("The number of " + property + "'s is: " + grades[property].length + "<br>");
 	}
 }
 
-// function listingShiz() {
-// 	for (var i = 0; i < fullNames.length; i++) {
-// 		var newListItem = document.createElement("li");
-// 		newListItem.innerHTML = fullNames[i];
-// 		// var numberListValue = document.createTextNode(i);
-// 		hohohoElement.appendChild(newListItem);
-// 	}
-// }
-
-console.log(grades);
 countingGrades();
-
-
-// for (var property in grades) {
-// 	output.push("Grade " + property + ": " + grades[property] + "; ");
-// }
-
-// for (var i = 0; i < output.length; i++) {
-// 	para.appendChild(output[i]);
-// 	element.appendChild(para);
-// }
