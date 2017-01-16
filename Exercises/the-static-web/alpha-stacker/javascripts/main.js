@@ -6,11 +6,14 @@ var stackedWithSpace = '';
 var counter = 0;
 
 function stackLetters (theAlphabetArray) {
+	
+	for (var letter in theAlphabetArray) {
+    	stacked += theAlphabetArray[letter];
+    	console.log(stacked);
+    }
+
     for (var letter in theAlphabetArray) {
     	counter += 1;
-
-    	stacked += theAlphabetArray[letter];
-
     	if (counter % 3 === 0) {
     		stackedWithSpace += theAlphabetArray[letter];
     		stackedWithSpace += ' ';
@@ -20,7 +23,6 @@ function stackLetters (theAlphabetArray) {
     		console.log(stackedWithSpace);
     	}
     }  
-    console.log(stacked); 
 }
 
 // // Invoke the function and pass in the array
