@@ -45,7 +45,7 @@ function checkForMouse(n) {
 }
 
 function checkKeyUp(event) {
-	if (event.keyCode == 13 && mouse == true) {
+	if (event.keyCode === 13 && mouse === true) {
 		treeFunction(myTree);
 	}
 }
