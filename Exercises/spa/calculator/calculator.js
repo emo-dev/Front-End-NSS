@@ -3,14 +3,30 @@ var subtracted = document.getElementById("subtract1");
 var divided = document.getElementById("divide1");
 var multiplied = document.getElementById("multiply1");
 
+var input1 = document.getElementById("input1");
+var input2 = document.getElementById("input2");
+input1.addEventListener("change", assignment1);
+input2.addEventListener("change", assignment2);
+
+
+var userNumber1;
+var userNumber2;
+
+function assignment1(event) {
+  userNumber1 = parseInt(input1.value);
+};
+
+function assignment2(event) {
+  userNumber2 = parseInt(input2.value);
+}
+
+
 /*
   Create a function that multiplies two numbers
   passed in as arguments. Return the product.
  */
 function multiplyFunction(x, y) {
-  x = parseInt(document.getElementById("input1").value);
-  y = parseInt(document.getElementById("input2").value);
-
+  
   multiplied.innerHTML = x * y;
   return (x + y);
 }
@@ -20,9 +36,7 @@ function multiplyFunction(x, y) {
   passed in as arguments. Return the sum.
  */
 function addFunction(x, y) {
-  x = parseInt(document.getElementById("input1").value);
-  y = parseInt(document.getElementById("input2").value);
-
+  
   added.innerHTML = x + y;
   return (x * y);
 }
@@ -33,9 +47,7 @@ function addFunction(x, y) {
   passed in as arguments. Return the difference.
  */
 function subtractFunction(x, y) {
-  x = parseInt(document.getElementById("input1").value);
-  y = parseInt(document.getElementById("input2").value);
-
+  
   subtracted.innerHTML = x - y;
   return (x - y);
 }
@@ -46,9 +58,7 @@ function subtractFunction(x, y) {
   passed in as arguments. Return the quotient.
  */
 function divideFunction(x, y) {
-  x = parseInt(document.getElementById("input1").value);
-  y = parseInt(document.getElementById("input2").value);
-
+  
   divided.innerHTML = x / y;
   return(x / y);
 }
@@ -68,7 +78,7 @@ function someMath(x, y, someFunction) {
 }
 
 
-console.log(someMath(5, 8, divideFunction));
+console.log(someMath(10, 2, divideFunction));
 
 
 
