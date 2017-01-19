@@ -1,3 +1,6 @@
+var input1 = document.getElementById("heightOfTree");
+var input2 = document.getElementById("treeCharacter");
+
 var myTree = {};
 
 function heightInput() {
@@ -36,9 +39,14 @@ function treeFunction(someTree) {
 	return false;
 };
 
-function checkKeyUp() {
-	if (mousehover === true) {
-		treeFunction();
+var mouse = false;
+function checkForMouse(n) {
+	mouse = n;
+}
+
+function checkKeyUp(event) {
+	if (event.keyCode == 13 && mouse == true) {
+		treeFunction(myTree);
 	}
 }
 
