@@ -1,25 +1,48 @@
+var input1 = document.getElementById("input1");
+var input2 = document.getElementById("input2");
+
+var added = document.getElementById("add1");
+var subtracted = document.getElementById("subtract1");
+var divided = document.getElementById("divide1");
+var multiplied = document.getElementById("multiply1");
+
 /*
   Create a function that multiplies two numbers
   passed in as arguments. Return the product.
  */
-
+function multiply(x, y) {
+  multiplied.innerHTML = x * y;
+  return (x + y);
+}
 
 /*
   Create a function that adds two numbers
   passed in as arguments. Return the sum.
  */
+function add(x, y) {
+  added.innerHTML = x + y;
+  return (x * y);
+}
 
 
 /*
   Create a function that subtracts two numbers
   passed in as arguments. Return the difference.
  */
+ function subtract(x, y) {
+  subtracted.innerHTML = x - y;
+  return (x - y);
+ }
 
 
 /*
   Create a function that divides two numbers
   passed in as arguments. Return the quotient.
  */
+ function divide(x, y) {
+  divided.innerHTML = x / y;
+  return(x / y);
+ }
 
 
 
@@ -31,3 +54,16 @@
 
   Return the value of the operation.
  */
+function someMath(x, y, someFunction) {
+  return someFunction(x, y);
+}
+
+
+
+
+
+
+
+
+
+
