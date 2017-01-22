@@ -8,14 +8,14 @@ function checkIfNumber(event) {
 	console.log("receieved.")
 	if (isNaN(inputEl.value) === false) {
 		alert("Sorry, but please insert a valid character.");
-		document.getElementById("form1").reset();
+		inputEl.value = '';
 		return;
 	}
 }
 
 function updateInput(event) {
 	var userInput = inputEl.value.split(" "); 
-	testString = userInput.join("");
+	testString = userInput.join("").toLowerCase();
 	return;
 }
 
@@ -35,8 +35,9 @@ function reversal() {
 function alphabits() {
 	var initialAlphabitize = [];
 	for (var letter in testString) {
-		initialReverse.sort(testString[letter]);
+		initialAlphabitize.push(testString[letter]);
 	}
+	initialAlphabitize.sort();
 	var alphabitize = initialAlphabitize.join("");
 	document.getElementById("alphabetic").innerHTML = alphabitize;
 }
@@ -47,19 +48,43 @@ function alphabits() {
 //Palindrome is a text that reads the same backwards as
 //forwards
 function palindrome() {
+	var initialPalindrome = [];
+	var backwardsPalindrome = [];
+	for (var letter in testString) {
+		initialPalindrome.push(testString[letter]);
+		backwardsPalindrome.unshift(testString[letter]);
+	}
+	var ifPalindrome = initialPalindrome.join("");
+	var elsePalindrome = backwardsPalindrome.join("");
 
+	if (ifPalindrome === elsePalindrome) {
+		var display = "Your string is a palindrome! Congratufuckinglations.";
+		document.getElementById("palindrome").innerHTML = display;
+	} else if (ifPalindrome === "camille") {
+		document.getElementById("palindrome").innerHTML = "Sorry pretty lady, but you are too beautiful to be a fucking palindrome.";
+	} else {
+		document.getElementById("palindrome").innerHTML = "Hm.. At least you're really sexy.";
+	}
+}
 
-	var isPalindrome = document.getElementById("palindrome").innerHTML;
+function checkIfEnter() {
+	if (event.keyCode == 13) {
+		reversal();
+		alphabits();
+		palindrome();
+	}
+	return;
 }
 
 //When the user presses the enter key, or clicks the button
 //testString should equal the value of the input
 inputEl.addEventListener("keyup", checkIfNumber);
 inputEl.addEventListener("change", updateInput);
+inputEl.addEventListener("keyup", checkIfEnter);
 
 button.addEventListener('click', reversal);
-// button.addEventListener('click', alphabits);
-// button.addEventListener('click', palindrome);
+button.addEventListener('click', alphabits);
+button.addEventListener('click', palindrome);
 // reversal(testString);
 // alphabits(testString);
 // palindrome(testString);
