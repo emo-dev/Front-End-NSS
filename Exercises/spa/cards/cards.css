@@ -1,0 +1,21 @@
+#parentDiv {
+	background-color: lightgrey;
+	width: 1000px;
+	min-height: 200px;
+	margin: 1em auto;
+	border: 2px solid black;
+
+}
+
+.childDiv {
+	display: inline-block;
+	width: 150px;
+	height: 160px;
+	margin: 20px 5%;
+	background-color: lightblue;
+	text-align: center;
+}
+
+.theHeadings {
+	margin: 0 auto 0 auto;
+}
