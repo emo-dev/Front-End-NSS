@@ -18,7 +18,8 @@ var capPlanets = planets.map(function(planet){
 	planet = newPlanet.join("");
 	return planet;
 });
-console.log(capPlanets);
+
+console.log("Capitalized the first letter "; capPlanets);
 
 // Use the filter method to create a new array that contains planets with the letter 'e'
 function checkForE(planet) {
