@@ -4,50 +4,60 @@
 <head>
 	<title>Sandwich Maker</title>
 </head>
-<body>
+<body onclick="SandwichMaker.gatherPrices()">
 
 	<section class="sandwich-ingredients">
 	
-			<input type="radio" name="bread" value="artisan">Artisan</input>
-			<input type="radio" name="bread" value="flatbread">Flatbread</input>
-			<input type="radio" name="bread" value="wholeGrain">Whole Grain</input>
-			<input type="radio" name="bread" value="glutenFree">Gluten Free</input>
-			<input type="radio" name="bread" value="ciabatta">Ciabatta</input>
+			<input type="checkbox" name="bread" value="artisan">Artisan</input>
+			<input type="checkbox" name="bread" value="flatbread">Flatbread</input>
+			<input type="checkbox" name="bread" value="wholeGrain">Whole Grain</input>
+			<input type="checkbox" name="bread" value="glutenFree">Gluten Free</input>
+			<input type="checkbox" name="bread" value="ciabatta">Ciabatta</input>
+			<input type="checkbox" name="bread" value="none">None</input>
 			
 			<hr>
 			
-			<input type="radio" name="meat" value="spicyChicken">Spicy Chicken</input>
-			<input type="radio" name="meat" value="roastBeef">Roast Beef</input>
-			<input type="radio" name="meat" value="blackForestHam">Black Forest Ham</input>
-			<input type="radio" name="meat" value="pastrami">Pastrami</input>
-			<input type="radio" name="meat" value="turkey">Turkey</input>
+			<input type="checkbox" name="meat" value="spicyChicken">Spicy Chicken</input>
+			<input type="checkbox" name="meat" value="roastBeef">Roast Beef</input>
+			<input type="checkbox" name="meat" value="blackForestHam">Black Forest Ham</input>
+			<input type="checkbox" name="meat" value="pastrami">Pastrami</input>
+			<input type="checkbox" name="meat" value="turkey">Turkey</input>
+			<input type="checkbox" name="meat" value="none">None</input>
 			
 			<hr>
 			
-			<input type="radio" name="cheese" value="mozzarella">Mozzarella</input>
-			<input type="radio" name="cheese" value="cheddar">Cheddar</input>
-			<input type="radio" name="cheese" value="parmesan">Parmesan</input>
-			<input type="radio" name="cheese" value="jack">Jack</input>
-			<input type="radio" name="cheese" value="swiss">Swiss</input>
+			<input type="checkbox" name="cheese" value="mozzarella">Mozzarella</input>
+			<input type="checkbox" name="cheese" value="cheddar">Cheddar</input>
+			<input type="checkbox" name="cheese" value="parmesan">Parmesan</input>
+			<input type="checkbox" name="cheese" value="jack">Jack</input>
+			<input type="checkbox" name="cheese" value="swiss">Swiss</input>
+			<input type="checkbox" name="cheese" value="none">None</input>
 			
 			<hr>
 			
-			<input type="radio" name="veggies" value="lettuce">Lettuce</input>
-			<input type="radio" name="veggies" value="tomato">Tomato</input>
-			<input type="radio" name="veggies" value="pickles">Pickles</input>
-			<input type="radio" name="veggies" value="peppers">Peppers</input>
-			<input type="radio" name="veggies" value="onions">Onions</input>
+			<input type="checkbox" name="veggies" value="lettuce">Lettuce</input>
+			<input type="checkbox" name="veggies" value="tomato">Tomato</input>
+			<input type="checkbox" name="veggies" value="pickles">Pickles</input>
+			<input type="checkbox" name="veggies" value="peppers">Peppers</input>
+			<input type="checkbox" name="veggies" value="onions">Onions</input>
+			<input type="checkbox" name="veggies" value="none">None</input>
 			
 			<hr>
 			
-			<input type="radio" name="condiments" value="ketchup">Ketchup</input>
-			<input type="radio" name="condiments" value="chiliSauce">Chili Sauce</input>
-			<input type="radio" name="condiments" value="mustard">Mustard</input>
-			<input type="radio" name="condiments" value="mayonnaise">Mayonnaise</input>
-			<input type="radio" name="condiments" value="tabascoSauce">Tobasco Sauce</input>
+			<input type="checkbox" name="condiments" value="ketchup">Ketchup</input>
+			<input type="checkbox" name="condiments" value="chiliSauce">Chili Sauce</input>
+			<input type="checkbox" name="condiments" value="mustard">Mustard</input>
+			<input type="checkbox" name="condiments" value="mayonnaise">Mayonnaise</input>
+			<input type="checkbox" name="condiments" value="tabascoSauce">Tobasco Sauce</input>
+			<input type="checkbox" name="condiments" value="none">None</input>
 	</section>
 
-	<section id="totalCost"></section>
+
+
+	<section id="totalCost">
+		<p>Final Cost: </p>
+		<p id="finalCost"></p>
+	</section>
 
 
 <script type="text/javascript" src="javascripts/SandwichMaker.js"></script>
