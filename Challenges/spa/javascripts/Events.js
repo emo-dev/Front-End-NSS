@@ -57,12 +57,10 @@ var CarLot = (function(Events) {
     			var targetedThumbnail = document.getElementsByClassName("highBorder");
     			console.log(event.target.parentNode.parentNode);
     			if (event.target.parentNode.parentNode.classList.contains("highBorder")) {
-
-
     				event.target.parentNode.parentNode.parentNode.removeChild(targetedThumbnail[0]);
 	    			console.log("yes");
     			}
-    		});
+    		})
     	},
 
     	updateDescription: function() {
