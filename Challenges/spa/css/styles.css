@@ -1,0 +1,13 @@
+.row {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.carBorder {
+	border: 1px solid black;
+}
+
+.highBorder {
+	border: 3px solid black;
+}
+
