@@ -11,9 +11,10 @@ var Slideshow = (function(JsonLoad) {
 	//For the pre-determined cat list
 	JsonLoad.loadCats = function() {
 
-		let updateCatData = songList => {
+		let updateCatData = catList => {
 			console.log("done loading cats");
-			myData.cats = songList;
+			myData.cats = catList.getElementsByTagName("image");
+			console.log(myData["cats"]);
 		};
 
 		$.ajax({url:"http://thecatapi.com/api/images/get?format=xml&results_per_page=20"})
@@ -22,8 +23,6 @@ var Slideshow = (function(JsonLoad) {
 
 	//Function to retrieve stored Json data
 	JsonLoad.grabJson = dataName => myData[dataName];
-
-	JsonLoad
 
 	return JsonLoad;
 
