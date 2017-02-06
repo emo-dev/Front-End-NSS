@@ -1,42 +1,22 @@
 "use strict";
 
 
-var Acme = (function(LoadJson) {
+let getCategories = (variableName) => {
 
-	/*=========================*/
-	/*========JSON LOAD========*/
-	/*=========================*/	
+	let myData = {};
 
-	let myData =[];
-
-	LoadJson.loadFireworks = function(fileName, variableName) {
-
-		let updateFireworksData = fireworksList => {
-			console.log("done loading " + variableName);
-			myData[variableName] = fireworksList;
-		};
-
-		$.ajax({url:fileName})
-			.done(updateFireworksData);
-
+	let updateFireworksCategories = fireworksList => {
+		console.log("done loading " + variableName);
+		myData[variableName] = fireworksList;
 	};
 
-	//Function to retrieve stored Json data
-	LoadJson.grabJson = dataName => myData[dataName];
+	$.ajax({url:"../jsonFiles/products.json"})
+		.done(updateFireworksCategories);
 
+	return myData;
+};
 
-	return LoadJson;
-
-
-})(Acme || {});
-
-window.onload = Acme.loadFireworks("../jsonFiles/categories.json", )
-
-
-
-
-
-
+window.onload = getCategories("categories");
 
 
 
