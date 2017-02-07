@@ -13,7 +13,8 @@
     "this",
     "document",
     "debugger",
-    "window"
+    "window", 
+    "newXMLHttpRequest();"
   ],
   "author": "Taylor Perkins",
   "license": "ISC",
