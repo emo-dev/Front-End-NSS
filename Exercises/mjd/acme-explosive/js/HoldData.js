@@ -9,7 +9,7 @@ var Acme = (function(Start) {
 			myData[variableName] = data;
 		},
 
-		getData: function() {console.log(myData);}
+		getData: () => {console.log(myData);}
 	};
 
 })(Acme || {});

@@ -1,19 +1,14 @@
 "use strict";
 
 
-Acme.getCategories("categories").then(
+Acme.getCategories().then(
 
-	Acme.getTypes("types"),
+	() => {return Acme.getTypes()},
 	(errorMessage) => console.error(errorMessage)
 
 ).then(
 
-	Acme.getProducts("products"),
+	() => {return Acme.getProducts()},
 	(errorMessage) => console.error(errorMessage)
-
-).then(
-
-	Acme.grabData,
-	(errorMessage) => console.log(errorMessage)
 
 );

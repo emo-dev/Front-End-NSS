@@ -3,23 +3,25 @@
 var Acme = (function(Products) {
 
 
-	Products.getProducts = (variableName) => {
+	Products.getProducts = () => {
+
 		return new Promise((resolve, reject) => {
 			let products = new XMLHttpRequest();
 
 			products.addEventListener("load", function () {
-				console.log("Loading " + variableName);
-				Acme.setData(variableName, this.response);
-				// myData[variableName] = this.response;
-				resolve();
+				console.log("Loading products");
+				Acme.setData("products", this.response);
+				// myData[products] = this.response;
+				resolve(Acme.getData());
 			});
 
 			products.addEventListener("error", function() {
-				console.log("Error occured with " + variableName);
-				reject("Error within " + variableName);
+				console.log("Error occured with products");
+				reject("Error within products");
 			});
 
 			products.open("GET", "../jsonFiles/products.json");
+			products.responseType ="json";
 
 			window.setTimeout(function() {
 				products.send();

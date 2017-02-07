@@ -3,23 +3,25 @@
 var Acme = (function(Types) {
 
 
-	Types.getTypes = (variableName) => {
+	Types.getTypes = () => {
+
 		return new Promise((resolve, reject) => {
 			let types = new XMLHttpRequest();
 
 			types.addEventListener("load", function () {
-				console.log("Loading " + variableName);
-				Acme.setData(variableName, this.response);
-				// myData[variableName] = this.response;
+				console.log("Loading types");
+				Acme.setData("types", this.response);
+				// myData[types] = this.response;
 				resolve();
 			});
 
 			types.addEventListener("error", function() {
-				console.log("Error occured with " + variableName);
-				reject("Error within " + variableName);
+				console.log("Error occured with types");
+				reject("Error within types");
 			});
 
 			types.open("GET", "../jsonFiles/types.json");
+			types.responseType ="json";
 
 			window.setTimeout(function() {
 				types.send();
