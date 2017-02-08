@@ -1,16 +1,14 @@
 "use strict";
 	
-var Acme = (function(Start) {
 
-	let myData = {};
+let myData = {};
 
-	return {
-		setData: function(variableName, data) {
-			myData[variableName] = data;
-		},
+let setData = (variableName, data) => {
+		myData[variableName] = data;
+};
 
-		getData: () => {console.log(myData);}
-	};
+let getData = () => {return myData;};
 
-})(Acme || {});
+module.exports = {setData, getData};
+
 

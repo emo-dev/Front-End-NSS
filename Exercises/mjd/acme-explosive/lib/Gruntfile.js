@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     jshint: {
       files: ['../js/**/*.js'], //location of javascript files
       options: {
-        predef: ["document", "console", "$", "this", "XMLHttpRequest", "window"], //allows for predefined things not found in js
+        predef: ["document", "console", "$", "this", "XMLHttpRequest", "window", "target"], //allows for predefined things not found in js
         esnext: true, //allows for ES6 
         globalstrict: true,
         globals: {"Acme":true}, //name value pairs, allows to define global vars used in many files.
@@ -36,5 +36,5 @@ module.exports = function(grunt) {
   });
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['jshint', 'sass', 'browserify', 'watch']);
+  grunt.registerTask('default', ['jshint', 'browserify', 'watch']);
 };
