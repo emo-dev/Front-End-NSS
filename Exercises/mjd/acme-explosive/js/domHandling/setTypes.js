@@ -9,15 +9,17 @@ function setTypes(category) {
 
 	return new Promise((resolve) => {
 
+		let resolveObject = {};
+
+		let myCategoryId;
+		let myTypeIds = [];
+		let myTypes = [];
+
 		let createTypeCards = function() {
 			console.log("You are within setTypes.js");
 
 			let categories = myData.getData().categories;
 			let types = myData.getData().types;
-			let myCategoryId;
-			let myTypeIds = [];
-
-			let myTypes = [];
 
 			//loop through categories to find matching click point
 			for (var obj = 0; obj < categories.length; obj++) {
@@ -44,7 +46,8 @@ function setTypes(category) {
 					<div class="col-md-12 ${type.name + type.id} fireworks-card">
 					    <div class="thumbnail">
 					      <div class="caption">
-					        <h3>${type.description + " " + type.id}</h3>
+					        <h5>${type.description + " " + type.id}</h5>
+					        <hr>
 					        <p>...</p>
 					      </div>
 					    </div>
@@ -53,8 +56,13 @@ function setTypes(category) {
 			$('.' + category).append(myCard);
 			});
 
+			console.log("You are in setTypes.js", myCategoryId, myTypeIds, myTypes);
 
-			resolve();
+			resolveObject = {
+				myCategoryId, myTypeIds, myTypes
+			};
+
+			resolve(resolveObject);
 		};
 
 		window.setTimeout(function() {

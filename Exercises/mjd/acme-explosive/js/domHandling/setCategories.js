@@ -21,7 +21,6 @@ let setCategories = (data) => {
 		          		</div>
 		        	</div>`;
 
-				console.log(header);
 				$(".row").append(card);
 			});
 		};

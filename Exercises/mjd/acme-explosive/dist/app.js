@@ -58,7 +58,6 @@ let setCategories = (data) => {
 		          		</div>
 		        	</div>`;
 
-				console.log(header);
 				$(".row").append(card);
 			});
 		};
@@ -78,6 +77,58 @@ module.exports = {setCategories};
 
 let myData = require('.././HoldData.js');
 
+let setProducts = (resolveObj) => {
+
+	return new Promise((resolve) => {
+
+		let createProductCards = (products) => {
+
+			console.log(resolveObj);
+
+			resolveObj.myTypeIds.forEach(function(myType) {
+				console.log(myType);
+				products.forEach(function(product) {
+					console.log(product);
+				});
+			});
+
+			let productDom = 
+			`<div class="row marketing">
+		        <div class="col-lg-6">
+		          <h4>Subheading</h4>
+		          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+		          <h4>Subheading</h4>
+		          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+		          <h4>Subheading</h4>
+		          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+		        </div>
+		    </div>`;
+
+		};
+
+		resolve();
+
+		window.setTimeout(function() {
+			createProductCards(myData.getData().products);
+		}, Math.random() * 2000);
+	});
+
+};
+
+
+
+
+
+
+
+module.exports = {setProducts};
+},{".././HoldData.js":1}],5:[function(require,module,exports){
+"use strict";
+
+let myData = require('.././HoldData.js');
+
 
 //category represents the category that the user clicks in the dropdown 
 //within the navbar
@@ -85,15 +136,17 @@ function setTypes(category) {
 
 	return new Promise((resolve) => {
 
+		let resolveObject = {};
+
+		let myCategoryId;
+		let myTypeIds = [];
+		let myTypes = [];
+
 		let createTypeCards = function() {
 			console.log("You are within setTypes.js");
 
 			let categories = myData.getData().categories;
 			let types = myData.getData().types;
-			let myCategoryId;
-			let myTypeIds = [];
-
-			let myTypes = [];
 
 			//loop through categories to find matching click point
 			for (var obj = 0; obj < categories.length; obj++) {
@@ -120,7 +173,8 @@ function setTypes(category) {
 					<div class="col-md-12 ${type.name + type.id} fireworks-card">
 					    <div class="thumbnail">
 					      <div class="caption">
-					        <h3>${type.description + " " + type.id}</h3>
+					        <h5>${type.description + " " + type.id}</h5>
+					        <hr>
 					        <p>...</p>
 					      </div>
 					    </div>
@@ -129,8 +183,13 @@ function setTypes(category) {
 			$('.' + category).append(myCard);
 			});
 
+			console.log("You are in setTypes.js", myCategoryId, myTypeIds, myTypes);
 
-			resolve();
+			resolveObject = {
+				myCategoryId, myTypeIds, myTypes
+			};
+
+			resolve(resolveObject);
 		};
 
 		window.setTimeout(function() {
@@ -142,23 +201,24 @@ function setTypes(category) {
 
 module.exports = {setTypes};
 
-},{".././HoldData.js":1}],5:[function(require,module,exports){
+},{".././HoldData.js":1}],6:[function(require,module,exports){
 "use strict";
 
 let removeCards = require('./domHandling/removeCards.js');
 let setTypes = require('./domHandling/setTypes.js');
+let setProducts = require('./domHandling/setProducts.js');
 
 function handleCards(category) {
 
 	removeCards.removeCards().then(
-
 			() => {return setTypes.setTypes(category);}
-
+		).then(
+			(resolveObj) => {return setProducts.setProducts(resolveObj);}
 		);
 }
 
 module.exports = {handleCards};
-},{"./domHandling/removeCards.js":2,"./domHandling/setTypes.js":4}],6:[function(require,module,exports){
+},{"./domHandling/removeCards.js":2,"./domHandling/setProducts.js":4,"./domHandling/setTypes.js":5}],7:[function(require,module,exports){
 "use strict";
 
 let categories = require('./jsonUploads/CategoriesAcme.js');
@@ -186,7 +246,7 @@ function fireworks() {
 }
 
 module.exports = {fireworks};
-},{"./HoldData.js":1,"./domHandling/setCategories.js":3,"./jsonUploads/CategoriesAcme.js":7,"./jsonUploads/ProductsAcme.js":8,"./jsonUploads/TypesAcme.js":9}],7:[function(require,module,exports){
+},{"./HoldData.js":1,"./domHandling/setCategories.js":3,"./jsonUploads/CategoriesAcme.js":8,"./jsonUploads/ProductsAcme.js":9,"./jsonUploads/TypesAcme.js":10}],8:[function(require,module,exports){
 "use strict";
 
 let data = require('../HoldData.js');
@@ -241,7 +301,7 @@ module.exports = {getCategories};
 
 
 
-},{"../HoldData.js":1}],8:[function(require,module,exports){
+},{"../HoldData.js":1}],9:[function(require,module,exports){
 "use strict";
 
 let data = require('../HoldData.js');
@@ -294,7 +354,7 @@ module.exports = {getProducts};
 
 
 
-},{"../HoldData.js":1}],9:[function(require,module,exports){
+},{"../HoldData.js":1}],10:[function(require,module,exports){
 "use strict";
 
 let data = require('../HoldData.js');
@@ -335,7 +395,7 @@ module.exports = {getTypes};
 
 
 
-},{"../HoldData.js":1}],10:[function(require,module,exports){
+},{"../HoldData.js":1}],11:[function(require,module,exports){
 "use strict";
 
 
@@ -421,4 +481,4 @@ document.getElementsByClassName("nav-dropdown")[0].addEventListener("click", fun
 
 
 
-},{"./HoldData.js":1,"./domHandling/setCategories.js":3,"./handleCards.js":5,"./initialUploads.js":6}]},{},[10]);
+},{"./HoldData.js":1,"./domHandling/setCategories.js":3,"./handleCards.js":6,"./initialUploads.js":7}]},{},[11]);
