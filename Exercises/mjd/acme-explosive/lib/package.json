@@ -1,12 +1,23 @@
 {
-  "name": "browserfy-demo",
+
+  "name": "acme",
   "version": "1.0.0",
-  "description": "Browserfy demo",
+  "description": "Creating a simple user interface for a product catelog of a fireworks company.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Taylor",
+  "keywords": [
+    "$",
+    "event",
+    "target",
+    "this",
+    "document",
+    "debugger",
+    "window",
+    "newXMLHttpRequest();"
+  ],
+  "author": "Taylor Perkins",
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^3.3.7",
