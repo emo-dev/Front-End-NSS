@@ -1,6 +1,21 @@
 "use strict";
 
+
+/*
+
+Requires for the page
+*/
+
 let data = require('../HoldData.js');
+
+
+/*
+
+This function makes an XMLHttpRequest for 
+categories.json
+It takes the parsed Json and stores it within an object 
+at HoldData.js
+*/
 
 let getCategories = () => {
 
@@ -8,7 +23,7 @@ let getCategories = () => {
 		let categories = new XMLHttpRequest();
 
 		categories.addEventListener("load", function () {
-			console.log("Loading categories");
+			console.log("Loading categories at CategoriesAcme.js.");
 			data.setData("categories", this.response);
 			// myData[variableName] = this.response;
 			resolve();
@@ -24,30 +39,10 @@ let getCategories = () => {
 
 		window.setTimeout(function() {
 			categories.send();
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 };
 
+
 module.exports = {getCategories};
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

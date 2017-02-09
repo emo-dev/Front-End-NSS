@@ -17,25 +17,50 @@ module.exports = {setData, getData};
 },{}],2:[function(require,module,exports){
 "use strict";
 
+
+/*
+
+This function removes all product information
+within the categories set up on the DOM
+*/
+
+
 function removeCards() {
 
 	return new Promise((resolve) => {
 
 		let deleteCards = function() {
-			console.log("you are within the removeCards.js");
 			$(".fireworks-card").remove();
+
+			console.log("Removed any product information from page at removeCards.js.");
+			console.log("This is the beginning of the promise chain at handleCards.js");
+
 			resolve();
 		};
 
 		window.setTimeout(function() {
 			deleteCards();
-		}, Math.random() * 2000);
+		}, 1000);
 	});	
 }
 
+
 module.exports = {removeCards};
+
+
 },{}],3:[function(require,module,exports){
 "use strict";
+
+
+/*
+
+This function takes parsed json data 
+and creates basic HTML structures for each 
+category within the DOM.
+
+This function must be the end of the promise
+chain initialized at initialUploads.js
+*/
 
 
 let setCategories = (data) => {
@@ -59,83 +84,121 @@ let setCategories = (data) => {
 		        	</div>`;
 
 				$(".row").append(card);
+
 			});
 		};
 
 		window.setTimeout(function() {
 			createCategoryCards(data);
-		}, Math.random() * 2000);
+		}, 1000);
 
+		console.log("Set initial HTML Categories at setCategories.js.");
+		console.log("This is the end of the promise chain at initialUploads.js");
+		console.log("");
+		console.log("==============================================");
+		console.log("==============================================");
+		console.log("");
 		resolve();
 	});
 };
 
 
 module.exports = {setCategories};
+
+
 },{}],4:[function(require,module,exports){
 "use strict";
 
+
+/*
+
+Requires needed for the file.
+*/
+
 let myData = require('.././HoldData.js');
+
+
+/*
+
+This function takes product information
+and displays it on the website based on 
+the category and type of firework.
+*/
 
 let setProducts = (resolveObj) => {
 
 	return new Promise((resolve) => {
 
-		let createProductCards = (products) => {
+		let createProductCards = (productsArr) => {
+			let myProducts = [];
 
-			console.log(resolveObj);
+			for (let id = 0; id < resolveObj.myTypeIds.length; id++) {
+				
+				let productId = "products--" + resolveObj.myTypeIds[id].toString();
+				let productCard = document.getElementById(productId);
 
-			resolveObj.myTypeIds.forEach(function(myType) {
-				console.log(myType);
-				products.forEach(function(product) {
-					console.log(product);
+				productsArr.forEach(function(productsObj) {
+					for (var product in productsObj) {
+						if (productsObj[product].type === resolveObj.myTypeIds[id]) {
+							myProducts.push(productsObj[product]);
+							let productDom = ``;
+							productDom += 
+								`<h5><strong><u>${productsObj[product].name}<u><strong></h5>
+		        				<p>${productsObj[product].description}</p>
+		        				<br><br>`;
+		        			$(productDom).appendTo(productCard);
+						}
+					}
 				});
-			});
-
-			let productDom = 
-			`<div class="row marketing">
-		        <div class="col-lg-6">
-		          <h4>Subheading</h4>
-		          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-		          <h4>Subheading</h4>
-		          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-		          <h4>Subheading</h4>
-		          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-		        </div>
-		    </div>`;
-
+			}
 		};
 
+		console.log("Set Product structures as setProducts.js");
+		console.log("This is the end of the promise chain initialized at handleCards.js");
+		console.log();
+		console.log("==============================================");
+		console.log("==============================================");
+		console.log();
 		resolve();
 
 		window.setTimeout(function() {
 			createProductCards(myData.getData().products);
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 
 };
 
 
-
-
-
-
-
 module.exports = {setProducts};
+
+
 },{".././HoldData.js":1}],5:[function(require,module,exports){
 "use strict";
+
+
+/*
+
+Requires for this file.
+*/
 
 let myData = require('.././HoldData.js');
 
 
-//category represents the category that the user clicks in the dropdown 
-//within the navbar
+/*
+
+This function appends "type information" to the DOM 
+based on the category selected. 
+It also applies a different background color to each thumbnail 
+based on the category.
+*/
+
+
 function setTypes(category) {
 
 	return new Promise((resolve) => {
 
+		//Object to be passed to setProducts.js in the 
+		//next step of the promise. 
 		let resolveObject = {};
 
 		let myCategoryId;
@@ -143,7 +206,6 @@ function setTypes(category) {
 		let myTypes = [];
 
 		let createTypeCards = function() {
-			console.log("You are within setTypes.js");
 
 			let categories = myData.getData().categories;
 			let types = myData.getData().types;
@@ -165,17 +227,37 @@ function setTypes(category) {
 				}
 			}
 
-			console.log("myCategoryId: ", myCategoryId, "| myTypeIds: ", myTypeIds, "| myTypes: ", myTypes);
 
+			//Set background color of thumbnail based on category
+			let thumbnailBackgroundColor;
+
+			switch (myCategoryId) {
+				case 0:
+					thumbnailBackgroundColor = "pink";
+					break;
+				case 1: 
+					thumbnailBackgroundColor = "lightgreen";
+					break;
+				case 2:
+					thumbnailBackgroundColor = "yellow";
+					break;
+			}
+
+
+			//set up structure for each Type and append it to the DOM container
 			myTypes.forEach(function(type) {
 				let myCard = ``;
 				myCard += `
 					<div class="col-md-12 ${type.name + type.id} fireworks-card">
-					    <div class="thumbnail">
+					    <div class="thumbnail" style="background-color:${thumbnailBackgroundColor}">
 					      <div class="caption">
+					      	<h5>${type.name.toUpperCase()}</h5>
 					        <h5>${type.description + " " + type.id}</h5>
 					        <hr>
 					        <p>...</p>
+					        <div class="col-lg-12">
+					          <section id="products--${type.id}" class="product-descriptions"></section>
+					        </div>
 					      </div>
 					    </div>
 					  </div>`;
@@ -183,30 +265,53 @@ function setTypes(category) {
 			$('.' + category).append(myCard);
 			});
 
-			console.log("You are in setTypes.js", myCategoryId, myTypeIds, myTypes);
-
 			resolveObject = {
-				myCategoryId, myTypeIds, myTypes
+				myTypeIds, myTypes
 			};
 
+			console.log("Set Type structure at setTypes.js");
 			resolve(resolveObject);
 		};
 
+
 		window.setTimeout(function() {
 			createTypeCards(category);
-		}, Math.random() * 2000);
+		}, 1000);
 
 	});
 }
 
 module.exports = {setTypes};
 
+
 },{".././HoldData.js":1}],6:[function(require,module,exports){
 "use strict";
+
+
+/*
+
+Requires for the file.
+*/
+
 
 let removeCards = require('./domHandling/removeCards.js');
 let setTypes = require('./domHandling/setTypes.js');
 let setProducts = require('./domHandling/setProducts.js');
+
+
+/*
+
+This is the beginning of a promise chain.
+The chain's steps: 
+
+	1. Remove any (if any) product information from 
+		the website.
+	2. Create product cards per type within the specified category.
+		These cards include basic <h3> tags and structure
+	3. Create product descriptions per product per type
+
+*/
+
 
 function handleCards(category) {
 
@@ -218,8 +323,16 @@ function handleCards(category) {
 }
 
 module.exports = {handleCards};
+
+
 },{"./domHandling/removeCards.js":2,"./domHandling/setProducts.js":4,"./domHandling/setTypes.js":5}],7:[function(require,module,exports){
 "use strict";
+
+
+/*
+
+Requires for the page
+*/
 
 let categories = require('./jsonUploads/CategoriesAcme.js');
 let types = require('./jsonUploads/TypesAcme.js');
@@ -227,6 +340,20 @@ let products = require('./jsonUploads/ProductsAcme.js');
 
 let myData = require('./HoldData.js');
 let categoryCards = require('./domHandling/setCategories.js');
+
+
+/*
+
+This function sets up a promise chain to: 
+	
+	1. Retrieve and parse categories.json file
+	2. Retrieve and parse types.json file
+	3. Retrieve and parse products.json file
+	4. Set up initial DOM structure by using category information
+
+The data retrieved from the json files is stored as objects
+within HoldData.js
+*/
 
 function fireworks() {
 
@@ -246,10 +373,27 @@ function fireworks() {
 }
 
 module.exports = {fireworks};
+
+
 },{"./HoldData.js":1,"./domHandling/setCategories.js":3,"./jsonUploads/CategoriesAcme.js":8,"./jsonUploads/ProductsAcme.js":9,"./jsonUploads/TypesAcme.js":10}],8:[function(require,module,exports){
 "use strict";
 
+
+/*
+
+Requires for the page
+*/
+
 let data = require('../HoldData.js');
+
+
+/*
+
+This function makes an XMLHttpRequest for 
+categories.json
+It takes the parsed Json and stores it within an object 
+at HoldData.js
+*/
 
 let getCategories = () => {
 
@@ -257,7 +401,7 @@ let getCategories = () => {
 		let categories = new XMLHttpRequest();
 
 		categories.addEventListener("load", function () {
-			console.log("Loading categories");
+			console.log("Loading categories at CategoriesAcme.js.");
 			data.setData("categories", this.response);
 			// myData[variableName] = this.response;
 			resolve();
@@ -273,38 +417,33 @@ let getCategories = () => {
 
 		window.setTimeout(function() {
 			categories.send();
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 };
+
 
 module.exports = {getCategories};
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 },{"../HoldData.js":1}],9:[function(require,module,exports){
 "use strict";
 
+
+/*
+
+Requires for the page
+*/
+
 let data = require('../HoldData.js');
+
+
+/*
+
+This function makes an XMLHttpRequest for 
+products.json
+It takes the parsed Json and stores it within an object 
+at HoldData.js
+*/
 
 let getProducts = () => {
 
@@ -312,7 +451,7 @@ let getProducts = () => {
 		let products = new XMLHttpRequest();
 
 		products.addEventListener("load", function () {
-			console.log("Loading products");
+			console.log("Loading products at ProductsAcme.js");
 			data.setData("products", this.response);
 			// myData[products] = this.response;
 			resolve(data.getData());
@@ -328,7 +467,7 @@ let getProducts = () => {
 
 		window.setTimeout(function() {
 			products.send();
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 };
 
@@ -336,28 +475,25 @@ let getProducts = () => {
 module.exports = {getProducts};
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 },{"../HoldData.js":1}],10:[function(require,module,exports){
 "use strict";
 
+
+/*
+
+Requires for the file.
+*/
+
 let data = require('../HoldData.js');
+
+
+/*
+
+This function makes an XMLHttpRequest for 
+types.json
+It takes the parsed Json and stores it within an object 
+at HoldData.js
+*/
 
 let getTypes = () => {
 
@@ -365,7 +501,7 @@ let getTypes = () => {
 		let types = new XMLHttpRequest();
 
 		types.addEventListener("load", function () {
-			console.log("Loading types");
+			console.log("Loading types at TypesAcme.js");
 			data.setData("types", this.response);
 			// myData[types] = this.response;
 			resolve();
@@ -381,32 +517,25 @@ let getTypes = () => {
 
 		window.setTimeout(function() {
 			types.send();
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 };
 
+
 module.exports = {getTypes};
-
-
-
-
-
-
-
 
 
 },{"../HoldData.js":1}],11:[function(require,module,exports){
 "use strict";
 
 
-window.fileUploads = require('./initialUploads.js');
+/*
+
+Requires for the file.
+*/
+
 let fileUploads = require('./initialUploads.js');
-
-window.fireworks = require('./HoldData.js');
 let fireworks = require('./HoldData.js');
-
-window.categories = require('./domHandling/setCategories.js');
-
 let categoryChosen = require('./handleCards.js');
 
 
@@ -423,7 +552,8 @@ fileUploads.fireworks();
 /*
 
 Add event listener to the categories button located in the navbar
-When clicked, it triggers a promise.
+When clicked, it triggers a promise. 
+The promise can be adjusted at handleCards.js
 The promise will check for children within each specific Category column
 and remove them if true. 
 Depending on the category clicked, it will fill the corresponding column
@@ -481,4 +611,4 @@ document.getElementsByClassName("nav-dropdown")[0].addEventListener("click", fun
 
 
 
-},{"./HoldData.js":1,"./domHandling/setCategories.js":3,"./handleCards.js":6,"./initialUploads.js":7}]},{},[11]);
+},{"./HoldData.js":1,"./handleCards.js":6,"./initialUploads.js":7}]},{},[11]);

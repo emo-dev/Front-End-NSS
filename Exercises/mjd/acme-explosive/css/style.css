@@ -3,6 +3,14 @@ html, body {
 	width: 100%;	
 }
 
+body {
+	background-color: lightblue;
+}
+
+h2 {
+	background-color: lightgrey;
+}
+
 .main-content {
 	min-height: 600px;
 }
@@ -13,9 +21,36 @@ html, body {
 }
 
 .thumbnail {
-	border-left: 2px solid black;
-	border-right: 2px solid black;
-	border-bottom: 2px solid black;
+	border: 2px solid black;
+	margin-bottom: 10px;
+	padding: 10px 10px 0 10px;
 	text-align: center;
 	min-height: 500px;
+	background-color: white;
 }
+
+.product-descriptions {
+	text-align: center;
+	width: 80%;
+	margin: auto;
+}
+
+footer {
+	padding: 10px;
+	border: 2px solid black;
+	justify-content: center;
+	background-color: lightgrey;
+}
+
+footer > p {
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+

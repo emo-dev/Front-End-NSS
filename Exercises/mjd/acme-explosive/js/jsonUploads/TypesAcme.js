@@ -1,6 +1,21 @@
 "use strict";
 
+
+/*
+
+Requires for the file.
+*/
+
 let data = require('../HoldData.js');
+
+
+/*
+
+This function makes an XMLHttpRequest for 
+types.json
+It takes the parsed Json and stores it within an object 
+at HoldData.js
+*/
 
 let getTypes = () => {
 
@@ -8,7 +23,7 @@ let getTypes = () => {
 		let types = new XMLHttpRequest();
 
 		types.addEventListener("load", function () {
-			console.log("Loading types");
+			console.log("Loading types at TypesAcme.js");
 			data.setData("types", this.response);
 			// myData[types] = this.response;
 			resolve();
@@ -24,16 +39,10 @@ let getTypes = () => {
 
 		window.setTimeout(function() {
 			types.send();
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 };
 
+
 module.exports = {getTypes};
-
-
-
-
-
-
-
 

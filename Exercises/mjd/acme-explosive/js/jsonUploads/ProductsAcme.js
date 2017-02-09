@@ -1,6 +1,21 @@
 "use strict";
 
+
+/*
+
+Requires for the page
+*/
+
 let data = require('../HoldData.js');
+
+
+/*
+
+This function makes an XMLHttpRequest for 
+products.json
+It takes the parsed Json and stores it within an object 
+at HoldData.js
+*/
 
 let getProducts = () => {
 
@@ -8,7 +23,7 @@ let getProducts = () => {
 		let products = new XMLHttpRequest();
 
 		products.addEventListener("load", function () {
-			console.log("Loading products");
+			console.log("Loading products at ProductsAcme.js");
 			data.setData("products", this.response);
 			// myData[products] = this.response;
 			resolve(data.getData());
@@ -24,28 +39,10 @@ let getProducts = () => {
 
 		window.setTimeout(function() {
 			products.send();
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 };
 
 
 module.exports = {getProducts};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

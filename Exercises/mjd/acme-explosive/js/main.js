@@ -1,14 +1,13 @@
 "use strict";
 
 
-window.fileUploads = require('./initialUploads.js');
+/*
+
+Requires for the file.
+*/
+
 let fileUploads = require('./initialUploads.js');
-
-window.fireworks = require('./HoldData.js');
 let fireworks = require('./HoldData.js');
-
-window.categories = require('./domHandling/setCategories.js');
-
 let categoryChosen = require('./handleCards.js');
 
 
@@ -25,7 +24,8 @@ fileUploads.fireworks();
 /*
 
 Add event listener to the categories button located in the navbar
-When clicked, it triggers a promise.
+When clicked, it triggers a promise. 
+The promise can be adjusted at handleCards.js
 The promise will check for children within each specific Category column
 and remove them if true. 
 Depending on the category clicked, it will fill the corresponding column

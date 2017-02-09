@@ -1,54 +1,64 @@
 "use strict";
 
+
+/*
+
+Requires needed for the file.
+*/
+
 let myData = require('.././HoldData.js');
+
+
+/*
+
+This function takes product information
+and displays it on the website based on 
+the category and type of firework.
+*/
 
 let setProducts = (resolveObj) => {
 
 	return new Promise((resolve) => {
 
-		let createProductCards = (products) => {
+		let createProductCards = (productsArr) => {
+			let myProducts = [];
 
-			console.log(resolveObj);
+			for (let id = 0; id < resolveObj.myTypeIds.length; id++) {
+				
+				let productId = "products--" + resolveObj.myTypeIds[id].toString();
+				let productCard = document.getElementById(productId);
 
-			resolveObj.myTypeIds.forEach(function(id) {
-				console.log(id);
-				products.forEach(function(product) {
-					product.forEach(function() {
-						
-					})
-					console.log(product);
+				productsArr.forEach(function(productsObj) {
+					for (var product in productsObj) {
+						if (productsObj[product].type === resolveObj.myTypeIds[id]) {
+							myProducts.push(productsObj[product]);
+							let productDom = ``;
+							productDom += 
+								`<h5><strong><u>${productsObj[product].name}<u><strong></h5>
+		        				<p>${productsObj[product].description}</p>
+		        				<br><br>`;
+		        			$(productDom).appendTo(productCard);
+						}
+					}
 				});
-			});
-
-			let productDom = 
-			`<div class="row marketing">
-		        <div class="col-lg-6">
-		          <h4>Subheading</h4>
-		          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-		          <h4>Subheading</h4>
-		          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-		          <h4>Subheading</h4>
-		          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-		        </div>
-		    </div>`;
-
+			}
 		};
 
+		console.log("Set Product structures as setProducts.js");
+		console.log("This is the end of the promise chain initialized at handleCards.js");
+		console.log();
+		console.log("==============================================");
+		console.log("==============================================");
+		console.log();
 		resolve();
 
 		window.setTimeout(function() {
 			createProductCards(myData.getData().products);
-		}, Math.random() * 2000);
+		}, 1000);
 	});
 
 };
 
 
-
-
-
-
-
 module.exports = {setProducts};
+

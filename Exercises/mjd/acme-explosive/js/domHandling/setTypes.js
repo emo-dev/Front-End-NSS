@@ -1,14 +1,29 @@
 "use strict";
 
+
+/*
+
+Requires for this file.
+*/
+
 let myData = require('.././HoldData.js');
 
 
-//category represents the category that the user clicks in the dropdown 
-//within the navbar
+/*
+
+This function appends "type information" to the DOM 
+based on the category selected. 
+It also applies a different background color to each thumbnail 
+based on the category.
+*/
+
+
 function setTypes(category) {
 
 	return new Promise((resolve) => {
 
+		//Object to be passed to setProducts.js in the 
+		//next step of the promise. 
 		let resolveObject = {};
 
 		let myCategoryId;
@@ -16,7 +31,6 @@ function setTypes(category) {
 		let myTypes = [];
 
 		let createTypeCards = function() {
-			console.log("You are within setTypes.js");
 
 			let categories = myData.getData().categories;
 			let types = myData.getData().types;
@@ -38,17 +52,37 @@ function setTypes(category) {
 				}
 			}
 
-			console.log("myCategoryId: ", myCategoryId, "| myTypeIds: ", myTypeIds, "| myTypes: ", myTypes);
 
+			//Set background color of thumbnail based on category
+			let thumbnailBackgroundColor;
+
+			switch (myCategoryId) {
+				case 0:
+					thumbnailBackgroundColor = "pink";
+					break;
+				case 1: 
+					thumbnailBackgroundColor = "lightgreen";
+					break;
+				case 2:
+					thumbnailBackgroundColor = "yellow";
+					break;
+			}
+
+
+			//set up structure for each Type and append it to the DOM container
 			myTypes.forEach(function(type) {
 				let myCard = ``;
 				myCard += `
 					<div class="col-md-12 ${type.name + type.id} fireworks-card">
-					    <div class="thumbnail">
+					    <div class="thumbnail" style="background-color:${thumbnailBackgroundColor}">
 					      <div class="caption">
+					      	<h5>${type.name.toUpperCase()}</h5>
 					        <h5>${type.description + " " + type.id}</h5>
 					        <hr>
 					        <p>...</p>
+					        <div class="col-lg-12">
+					          <section id="products--${type.id}" class="product-descriptions"></section>
+					        </div>
 					      </div>
 					    </div>
 					  </div>`;
@@ -56,20 +90,21 @@ function setTypes(category) {
 			$('.' + category).append(myCard);
 			});
 
-			console.log("You are in setTypes.js", myCategoryId, myTypeIds, myTypes);
-
 			resolveObject = {
-				myCategoryId, myTypeIds, myTypes
+				myTypeIds, myTypes
 			};
 
+			console.log("Set Type structure at setTypes.js");
 			resolve(resolveObject);
 		};
 
+
 		window.setTimeout(function() {
 			createTypeCards(category);
-		}, Math.random() * 2000);
+		}, 1000);
 
 	});
 }
 
 module.exports = {setTypes};
+
