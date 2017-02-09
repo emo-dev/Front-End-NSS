@@ -12,8 +12,11 @@ var Slideshow = (function(JsonLoad) {
 	JsonLoad.loadCats = function() {
 
 		let updateCatData = catList => {
+
+			let objectURL = URL.createObjectURL(catList);
 			console.log("done loading cats");
-			myData.cats = catList.getElementsByTagName("image");
+			// myData.cats = catList.getElementsByTagName("image");
+			myData.catsURL = objectURL;
 			console.log(myData["cats"]);
 		};
 
