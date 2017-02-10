@@ -2,12 +2,6 @@
 
 
 
-
-
-
-
-
-
 var CarLot = (function(Populate) {
 
 
@@ -61,29 +55,6 @@ var CarLot = (function(Populate) {
 
 CarLot.loadInventory(CarLot.populatePage);
 CarLot.addingEvents(addingBorder);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
