@@ -1,9 +1,24 @@
 "use strict";
 
-var Slideshow = (function(Main) {
 
-	Main.mainConnect = () => console.log("I am connected!");
+$('.next-icon').click(function(event) {
+	Slideshow.resetFlag();
+	Slideshow.displayPics();
+})
 
-	return Main;
+Slideshow.loadNasa();
+	// (myPics) => {return Slideshow.displayPics(myPicsIndex);}
 
-})(Slideshow || {});
+
+
+
+
+
+
+
+
+
+
+
+
+

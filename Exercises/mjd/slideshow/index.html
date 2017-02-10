@@ -3,14 +3,47 @@
 <head>
 	<title>Slideshow</title>
 	<meta charset="utf-8">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Mars Slideshow</a>
+    </div>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 hid text-center">
+  	<div id="mars-container">
+	    <a href="#" class="thumbnail planet-display">
+	      <img id="mars-pic1" src="images/mars.jpeg">
+	      <img id="mars-pic2" style="display: none">
+	    </a>
+    </div>
+    <div class="next-icon">
+    	<p>>></p>
+    </div>
+    <div class="caption">
+        <h3>Check out Mars</h3>
+        <p>Some really cool stuff.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-
-<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/json.js"></script>
+<script type="text/javascript" src="js/domHandling.js"></script>
+<script type="text/javascript" src="js/randomizeIndex.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>

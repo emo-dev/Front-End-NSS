@@ -1,34 +1,49 @@
 "use strict";
 
 var Slideshow = (function(JsonLoad) {
-	JsonLoad.jsonConnect = () => console.log("I am connected!");
-
 	//Variable to store all Parsed Json Data Files
-	let myData = {};
+	let myData = [];
 	
 	//Creates ajax request for cat pics. Pushes the retrieved JSON
-	//file to the updateCatData function to be stored
+	//file to the updateNasaData function to be stored
 	//For the pre-determined cat list
-	JsonLoad.loadCats = function() {
+	JsonLoad.loadNasa = function() {
+		return new Promise ((resolve, reject) => {
 
-		let updateCatData = catList => {
+			let updateNasaData = planetList => {
 
-			let objectURL = URL.createObjectURL(catList);
-			console.log("done loading cats");
-			// myData.cats = catList.getElementsByTagName("image");
-			myData.catsURL = objectURL;
-			console.log(myData["cats"]);
-		};
+				myData = planetList.photos.map(function(photo) {
+					let myPic = {};
+					myPic.date = photo.earth_date;
+					myPic.camera = photo.camera.name;
+					myPic.photoURL = photo.img_src;
+					return myPic;
+				})
+				console.log("done loading planets");
+				console.log(myData);
+				$('#mars-pic2').attr("src", myData[Slideshow.randomIndex()].photoURL);
+				resolve();
+			};
 
-		$.ajax({url:"http://thecatapi.com/api/images/get?format=xml&results_per_page=20"})
-			.done(updateCatData);
+			$.ajax({
+					url:"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=6ZZwVZ6tWx3Qt3lyKkiOvxpx0ylpZut9oOmg8LiT",
+					dataType: "json", 
+					success: function(data) {
+						updateNasaData(data);
+					},	
+					error: () => reject("You suck at this.") 
+			});
+		}) 
+
 	};
-
 	//Function to retrieve stored Json data
-	JsonLoad.grabJson = dataName => myData[dataName];
+	JsonLoad.grabPics = () => myData;
 
 	return JsonLoad;
 
 })(Slideshow || {});
 
-window.onload = Slideshow.loadCats
+
+
+
+
