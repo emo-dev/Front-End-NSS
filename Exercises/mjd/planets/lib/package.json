@@ -1,6 +1,6 @@
 {
 
-  "name": "acme",
+  "name": "planets",
   "version": "1.0.0",
   "description": "Creating a simple user interface for a product catelog of a fireworks company.",
   "main": "index.js",
