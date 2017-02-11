@@ -1,0 +1,15 @@
+{
+	"Jupiter": {
+		"Named": "Ruler of the Roman gods",
+        "DFTS": "778,340,821 km",
+        "Orbit Period": "11.9 Earth years",
+        "Diameter": "139,822 km",
+        "Discovered": "Known to the ancients and visible to the naked eye.",
+        "Mass": "1898 X 10^24 Kg",
+        "Pressure": ">>1000 atm",
+        "Atmosphere Comp": "90% Hydrogen, 10% Helium, 1% Other Gases, Hydrogen is metallic in this high pressure state.",
+        "Satellites": "Io, Europa, Ganymede, Callisto, Amaltheo, Himalia, Elara, Pasiphae, Sinope, Lysithea, Carme, Anake, Leda, Thebe, Adrastea, Metis, Callirrhoe, Themisto, Megaclite, Taygete, Chaldene, Harpalyke, Kalyke, Locaste, Erinome, Isonoe, Praxidike, Autonoe, Thyone, Hermippe, Aitne, Eurydome, Euanthe, Euporie, Orthosie, Sponde, Kale, Pasitihee, Hegemone, Mneme, Aoede, Thelxinoe, Arche, Kallichore, Helike, Carpo, Eukelade, Cyllene, Kore, Herse, S/2010 J 1, S/2010 J 2, Dia, S/2003 J 3, S/2003 J 4, S/2003 J 5, S/2003 J 9, S/2003 J 10, S/2003 J 12, S/2003 J 15, S/2003 J 16, S/2003 J 18, S/2003 J 19, S/2011 J 1, S/2011 J 2",
+        "Visited": "Pioneer 10-11, Voyager 1-2, Galileo Orbiter, Galileo Probe, Cassini, Ulysses, New Horizons, Juno",
+        "Day": "9.8 Earth hours"
+	}
+}

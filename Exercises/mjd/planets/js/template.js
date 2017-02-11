@@ -23,4 +23,4 @@ let template = (data) => {
 	return planetTemplate;
 };
 
-module.exports = template;
+module.exports = {template};

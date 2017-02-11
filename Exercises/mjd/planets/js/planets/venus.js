@@ -1,19 +1,31 @@
 "use strict";
 
-let planetTemplate = require('.././loadJSON/template.js');
-let data = require('.././loadJSON/loadingJson.js');
+let planetTemplate = require('.././template.js');
+
+let getVenus = () => {
+	return new Promise((resolve, reject) => {
+
+		$.ajax({
+	      url: "../../jsonn/Venus.json"
+	    }).done(function(songData) {
+	      resolve(songData);
+	    }).fail(function(error) {
+	      reject(error);
+	    });
+	    
+	});
+};
 
 function outputTo(domElement) {
 	return new Promise((resolve) => {
-		let planetData = data.getData();
-		planetData.forEach(function(planet) {
-			if (planet.Name === "Venus") {
-				let planetHTML = planetTemplate.template(planet);
-				$(domElement).append(planetHTML);
+		getVenus().then(
+			(VenusData) => {
+				let planetHTML = planetTemplate.template(VenusData.Venus);
+				$('.planets-list').append(planetHTML);
 				resolve();
 			}
-		});		
-	});
+		);
+	})	;
 }
 
-module.exports = outputTo;
+module.exports = {outputTo};
