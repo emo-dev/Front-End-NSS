@@ -1,0 +1,15 @@
+{
+	"Mercury": {
+        "Named": "Messenger of the Roman gods.",
+        "DFTS": "57,909,227 km",
+        "Orbit_Period": "88 days",
+        "Diameter": "4,879 km",
+        "Discovered": "Known to the ancients and visible to the naked eye.",
+        "Mass": "0.330 X 10^24 Kg",
+        "Pressure": "10^-14 atm",
+        "Atmosphere Comp": "42% Oxygen, 29% Sodium, 22% Hyrodgen, 7% Other Gases",
+        "Satellites": "Mercery has no orbiting celestial bodies",
+        "Visited": "Mariner 10, Messenger",
+        "Day": "58.6 Earth Days"
+	}
+}

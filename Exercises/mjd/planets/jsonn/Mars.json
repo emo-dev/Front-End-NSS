@@ -1,0 +1,15 @@
+{
+	"Mars": {
+		"Named": "Roman god of war",
+        "DFTS": "227,943,824 km",
+        "Orbit Period": "687 Earth Days",
+        "Diameter": "6,787 km",
+        "Discovered": "Known to the ancients and visible to the naked eye.",
+        "Mass": "0.642 X 10^24 Kg",
+        "Pressure": "0.006 atm",
+        "Atmosphere Comp": "95% Carbon Dioxide, 3% Nitrogen, 1.5% Argon, 0.5% Other Gases",
+        "Satellites": "Phobos, Deimos",
+        "Visited": "2001 Mars, Odyssey, Mars Express, MER-A 'Spirit', MER-B 'Opportunity', Mars Reconnaissance Oribter, Rosetta, Phoenix, Dawn, MSL Curiousity, Mars Orbiter Mission, MAVEN, ExoMars Trace Gas Orbiter",
+        "Day": "Slightly more than 1 Earth Day (24 hours, 37 minutes)"
+	}
+}

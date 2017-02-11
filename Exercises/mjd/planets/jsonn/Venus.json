@@ -1,0 +1,15 @@
+{
+	"Venus": {
+		"Named": "Roman goddess of love and beauty.",
+        "DFTS": "108,209,475 km",
+        "Orbit Period": "225 days",
+        "Diameter": "12,742 km",
+        "Discovered": "Known to the ancients and visible to the naked eye.",
+        "Mass": "4.87 X 10^24 Kg",
+        "Pressure": "90 atm",
+        "Atmosphere Comp": "96% Carbon Dioxide, 3% Nitrogen, 1% Other Gases, Contains clouds of sulfuric acid.",
+        "Satellites": "Venus has no orbiting celestial bodies",
+        "Visited": "Mariner 2, 5, 10, Venera 4-16, Pioneer Venus Oribiter, Multiprobe, Vega 1-2, Galileo, Magelian, Cassini, Venus Express, MESSENGER, Akatsuki, IKAROS",
+        "Day": "241 Earth Days"
+	}
+}
