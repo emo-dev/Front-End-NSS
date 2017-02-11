@@ -7,6 +7,7 @@ let loadData = () => {
 	return new Promise((resolve, reject) => {
 		$.ajax({url: "../../planets.json"})
 				.done((songData) => {
+					console.log(songData);
 					planetData = songData;
 					resolve(songData);})
 				.fail((error) => reject(error));
@@ -64,28 +65,28 @@ let loadingJson = require('./loadJSON/loadingJson.js');
 let planetsList = $('.planets-list');
 
 
-// loadingJson.loadData().then(
-// 	(planetData) => {return earth.createEarth(planetsList);},
-// 	(error) => error
-// 		).then(
-// 	(planetData) => {return mars.createMars(planetsList);},
-// 	(error) => error;
-// 		).then(
-// 	(planetData) => {return venus.createVenus(planetsList);},
-// 	(error) => error;
-// 		).then(
-// 	(planetData) => {return jupiter.createJupiter(planetsList);},
-// 	(error) => error;
-// 		)then(
-// 	(planetData) => {return mercury.createMercury(planetsList);},	
-// 	(error) => error;
-// 		).then(
-// 	(planetData) => {return neptune.createNeptune(planetsList);},
-// 	(error) => error;
-// 		).then(
-// 	(planetData) => {return uranus.createUranus(planetsList);},
-// 	(error) => error;
-// );
+loadingJson.loadData().then(
+	() => {return earth.outputTo(planetsList);},
+	(error) => error
+		).then(
+	() => {return mars.outputTo(planetsList);},
+	(error) => error
+		).then(
+	() => {return venus.outputTo(planetsList);},
+	(error) => error
+		).then(
+	() => {return jupiter.outputTo(planetsList);},
+	(error) => error
+		).then(
+	() => {return mercury.outputTo(planetsList);},	
+	(error) => error
+		).then(
+	() => {return neptune.outputTo(planetsList);},
+	(error) => error
+		).then(
+	() => {return uranus.outputTo(planetsList);},
+	(error) => error
+);
 	
 	
 	
