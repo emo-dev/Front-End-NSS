@@ -16,16 +16,18 @@ let getUranus = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
+		console.log(getUranus());
 		getUranus().then(
-			(UranusData) => {
-				let planetHTML = planetTemplate.template(UranusData.Uranus);
-				$('.planets-list').append(planetHTML);
+			(uranusData) => {
+				console.log("Uranus data: ", uranusData.Uranus);
+				let planetHTML = template(uranusData.Uranus, Object.keys(uranusData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);
-	})	;
+	});
 }
 
 module.exports = {outputTo};

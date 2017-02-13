@@ -10,30 +10,49 @@ let saturn = require('./planets/saturn.js');
 let uranus = require('./planets/uranus.js');
 let mercury = require('./planets/mercury.js');
 
-let planetsList = $('.planets-list');
+let planetTemplate = require('./template.js');
 
-earth.outputTo(planetsList).then(
-	() => mars.outputTo(planetsList),
+let planetsList = $('#planets-list');
+
+earth.outputTo(planetsList, planetTemplate.template).then(
+	() => mars.outputTo(planetsList, planetTemplate.template),
 	(error) => error
 		).then(
-	() => venus.outputTo(planetsList),
+	() => venus.outputTo(planetsList, planetTemplate.template),
 	(error) => error
 		).then(
-	() => jupiter.outputTo(planetsList),
+	() => jupiter.outputTo(planetsList, planetTemplate.template),
 	(error) => error
 		).then(
-	() => mercury.outputTo(planetsList),	
+	() => mercury.outputTo(planetsList, planetTemplate.template),	
 	(error) => error
 		).then(
-	() => neptune.outputTo(planetsList),
+	() => neptune.outputTo(planetsList, planetTemplate.template),
 	(error) => error
 		).then(
-	() => uranus.outputTo(planetsList),
+	() => uranus.outputTo(planetsList, planetTemplate.template),
 	(error) => error
 		).then(
-	() => saturn.outputTo(planetsList),
+	() => saturn.outputTo(planetsList, planetTemplate.template),
 	(error) => error
 );
+
+let addClassToCurrentPlanet = function(somePlanet) {
+	document.getElementById(currentPlanet).classList.add("hidden");
+};
+let currentPlanet = "something";
+$('.btn').click(function(event) {
+	console.log("you clicked: ", $(this).html());
+	let targetId = $(this).html();
+	console.log(targetId);
+	let myPlanet = document.getElementById(targetId);
+	if (currentPlanet !== "something") {
+		addClassToCurrentPlanet(myPlanet);
+	}
+	myPlanet.classList.remove("hidden");
+	console.log(myPlanet);
+	currentPlanet = targetId;
+});
 	
 	
 	

@@ -16,16 +16,18 @@ let getJupiter = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
+		console.log(getJupiter());
 		getJupiter().then(
-			(JupiterData) => {
-				let planetHTML = planetTemplate.template(JupiterData.Jupiter);
-				$('.planets-list').append(planetHTML);
+			(jupiterData) => {
+				console.log("Jupiter data: ", jupiterData.Jupiter);
+				let planetHTML = template(jupiterData.Jupiter, Object.keys(jupiterData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);
-	})	;
+	});
 }
 
 module.exports = {outputTo};

@@ -1,14 +1,14 @@
 "use strict";
 
-let template = (data) => {
+let template = (data, dataName) => {
 
 	let planetTemplate = ``;
 	planetTemplate = 
-		`<div id="${data.Name}" class="col-sm-6 col-md-4 col-md-4-offset-4 hidden">
+		`<div id="${dataName}" class="planets hidden">
 	        <div class="thumbnail">
-	            <img src="${data.Image}">
+	            <img src="${"images/" + dataName + ".jpeg"}">
 	            <div class="caption">
-	            <h3>${data.Name}</h3>
+	            <h3>${dataName}</h3>
 	            <ul>
 		            <li>${data.Discovered}</li>
 		            <li>Mass: ${data.Mass}, Diameter: ${data.Diameter}</li>

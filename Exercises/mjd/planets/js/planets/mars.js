@@ -16,17 +16,18 @@ let getMars = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
+		console.log(getMars());
 		getMars().then(
 			(marsData) => {
-				console.log("mars-data", marsData.Mars);
-				let planetHTML = planetTemplate.template(marsData.Mars);
-				$('.planets-list').append(planetHTML);
+				console.log("Mars data: ", marsData.Mars);
+				let planetHTML = template(marsData.Mars, Object.keys(marsData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);
-	})	;
+	});
 }
 
 module.exports = {outputTo};

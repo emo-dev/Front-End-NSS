@@ -16,16 +16,18 @@ let getMercury = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
+		console.log(getMercury());
 		getMercury().then(
-			(MercuryData) => {
-				let planetHTML = planetTemplate.template(MercuryData.Mercury);
-				$('.planets-list').append(planetHTML);
+			(mercuryData) => {
+				console.log("Mercury data: ", mercuryData.Mercury);
+				let planetHTML = template(mercuryData.Mercury, Object.keys(mercuryData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);
-	})	;
+	});
 }
 
 module.exports = {outputTo};

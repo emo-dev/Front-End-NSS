@@ -16,16 +16,18 @@ let getSaturn = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
+		console.log(getSaturn());
 		getSaturn().then(
-			(SaturnData) => {
-				let planetHTML = planetTemplate.template(SaturnData.Saturn);
-				$('.planets-list').append(planetHTML);
+			(saturnData) => {
+				console.log("Saturn data: ", saturnData.Saturn);
+				let planetHTML = template(saturnData.Saturn, Object.keys(saturnData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);
-	})	;
+	});
 }
 
 module.exports = {outputTo};
