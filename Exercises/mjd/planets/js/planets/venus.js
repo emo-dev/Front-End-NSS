@@ -16,16 +16,18 @@ let getVenus = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
+		console.log(getVenus());
 		getVenus().then(
-			(VenusData) => {
-				let planetHTML = planetTemplate.template(VenusData.Venus);
-				$('.planets-list').append(planetHTML);
+			(venusData) => {
+				console.log("Venus data: ", venusData.Venus);
+				let planetHTML = template(venusData.Venus, Object.keys(venusData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);
-	})	;
+	});
 }
 
 module.exports = {outputTo};

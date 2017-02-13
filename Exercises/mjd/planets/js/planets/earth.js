@@ -16,14 +16,14 @@ let getEarth = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
 		console.log(getEarth());
 		getEarth().then(
 			(earthData) => {
 				console.log("Earth data: ", earthData.Earth);
-				let planetHTML = planetTemplate.template(earthData.Earth);
-				$('.planets-list').append(planetHTML);
+				let planetHTML = template(earthData.Earth, Object.keys(earthData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);

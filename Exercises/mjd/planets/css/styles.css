@@ -17,6 +17,9 @@ h1, h2, h3, h4, h5, h6, ul, li, a, p {
 	margin-left: 2em;
 }
 
+.main-content {
+}
+
 .hidden {
 	display: none;
 }
@@ -24,3 +27,20 @@ h1, h2, h3, h4, h5, h6, ul, li, a, p {
 .btn-group-vertical {
 	float: left !important;
 }
+
+li {
+	list-style-type: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

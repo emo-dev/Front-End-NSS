@@ -16,16 +16,18 @@ let getNeptune = () => {
 	});
 };
 
-function outputTo(domElement) {
+function outputTo(domElement, template) {
 	return new Promise((resolve) => {
+		console.log(getNeptune());
 		getNeptune().then(
-			(NeptuneData) => {
-				let planetHTML = planetTemplate.template(NeptuneData.Neptune);
-				$('.planets-list').append(planetHTML);
+			(neptuneData) => {
+				console.log("Neptune data: ", neptuneData.Neptune);
+				let planetHTML = template(neptuneData.Neptune, Object.keys(neptuneData)[0]);
+				$(domElement).append(planetHTML);
 				resolve();
 			}
 		);
-	})	;
+	});
 }
 
 module.exports = {outputTo};
