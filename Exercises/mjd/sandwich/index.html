@@ -3,8 +3,11 @@
 <html>
 <head>
 	<title>Sandwich Maker</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body onclick="SandwichMaker.gatherPrices()">
+<body>
 
 	<section class="sandwich-ingredients">
 	
@@ -56,15 +59,12 @@
 
 	<section id="totalCost">
 		<p>Final Cost: </p>
-		<p id="finalCost"></p>
+		<p id="final-cost"></p>
 	</section>
 
 
-<script type="text/javascript" src="javascripts/SandwichMaker.js"></script>
-<script type="text/javascript" src="javascripts/Meat.js"></script>
-<script type="text/javascript" src="javascripts/Veggies.js"></script>
-<script type="text/javascript" src="javascripts/Condiments.js"></script>
-<script type="text/javascript" src="javascripts/Bread.js"></script>
-<script type="text/javascript" src="javascripts/Cheese.js"></script>
+<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>
