@@ -37,6 +37,7 @@ $("input").click(function(event) {
 		//if the target is a checkbox that doesn't equal "none"
 		case target.val():
 			document.getElementsByClassName(targetStringName)[0].children[5].checked = false;
+
 			let targetPrice = targetName.maker(target.val());
 			//if it's being checked
 			if (target.prop("checked")) {
@@ -46,6 +47,7 @@ $("input").click(function(event) {
 			} else if (target.checked !== true) {
 				totalPrice -= targetPrice;
 				console.log(totalPrice);
+
 			}
 
 	}
