@@ -3,68 +3,69 @@
 <html>
 <head>
 	<title>Sandwich Maker</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body onclick="SandwichMaker.gatherPrices()">
+<body>
 
 	<section class="sandwich-ingredients">
-	
+		<div class="container bread">
 			<input type="checkbox" name="bread" value="artisan">Artisan</input>
 			<input type="checkbox" name="bread" value="flatbread">Flatbread</input>
 			<input type="checkbox" name="bread" value="wholeGrain">Whole Grain</input>
 			<input type="checkbox" name="bread" value="glutenFree">Gluten Free</input>
 			<input type="checkbox" name="bread" value="ciabatta">Ciabatta</input>
 			<input type="checkbox" name="bread" value="none">None</input>
-			
+		</div>	
 			<hr>
-			
+		<div class="container meat">		
 			<input type="checkbox" name="meat" value="spicyChicken">Spicy Chicken</input>
 			<input type="checkbox" name="meat" value="roastBeef">Roast Beef</input>
 			<input type="checkbox" name="meat" value="blackForestHam">Black Forest Ham</input>
 			<input type="checkbox" name="meat" value="pastrami">Pastrami</input>
 			<input type="checkbox" name="meat" value="turkey">Turkey</input>
 			<input type="checkbox" name="meat" value="none">None</input>
-			
+		</div>	
 			<hr>
-			
+		<div class="container cheese">		
 			<input type="checkbox" name="cheese" value="mozzarella">Mozzarella</input>
 			<input type="checkbox" name="cheese" value="cheddar">Cheddar</input>
 			<input type="checkbox" name="cheese" value="parmesan">Parmesan</input>
 			<input type="checkbox" name="cheese" value="jack">Jack</input>
 			<input type="checkbox" name="cheese" value="swiss">Swiss</input>
 			<input type="checkbox" name="cheese" value="none">None</input>
-			
+		</div>	
 			<hr>
-			
+		<div class="container veggies">		
 			<input type="checkbox" name="veggies" value="lettuce">Lettuce</input>
 			<input type="checkbox" name="veggies" value="tomato">Tomato</input>
 			<input type="checkbox" name="veggies" value="pickles">Pickles</input>
 			<input type="checkbox" name="veggies" value="peppers">Peppers</input>
 			<input type="checkbox" name="veggies" value="onions">Onions</input>
 			<input type="checkbox" name="veggies" value="none">None</input>
-			
+		</div>	
 			<hr>
-			
+		<div class="container condiments">		
 			<input type="checkbox" name="condiments" value="ketchup">Ketchup</input>
 			<input type="checkbox" name="condiments" value="chiliSauce">Chili Sauce</input>
 			<input type="checkbox" name="condiments" value="mustard">Mustard</input>
 			<input type="checkbox" name="condiments" value="mayonnaise">Mayonnaise</input>
 			<input type="checkbox" name="condiments" value="tabascoSauce">Tobasco Sauce</input>
 			<input type="checkbox" name="condiments" value="none">None</input>
+		</div>	
 	</section>
 
 
 
 	<section id="totalCost">
 		<p>Final Cost: </p>
-		<p id="finalCost"></p>
+		<p id="final-cost"></p>
 	</section>
 
 
-<script type="text/javascript" src="javascripts/SandwichMaker.js"></script>
-<script type="text/javascript" src="javascripts/Meat.js"></script>
-<script type="text/javascript" src="javascripts/Veggies.js"></script>
-<script type="text/javascript" src="javascripts/Condiments.js"></script>
-<script type="text/javascript" src="javascripts/Bread.js"></script>
-<script type="text/javascript" src="javascripts/Cheese.js"></script>
+<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>

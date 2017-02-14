@@ -14,30 +14,40 @@ console.log(subtract, gather);
 
 let totalPrice = 0;
 
+$('input').click(function(event){
+	console.log(event.target.checked);
+});
+
 $("input").click(function(event) {
 	let target = $(event.target);
 	let targetName = eval(target.attr("name"));
-	console.log(targetName);
+	let targetStringName = target.attr('name');
 	switch(target.val()) {
 		//if the target is the none checkbox
 		case "none":
-			subtract.subtractToppings(target.attr("name"));
-			let nameList = document.getElementsByName(target.attr("name"));
-			let runningTotal = 0;
+			let nameList = document.getElementsByName(targetStringName);
 			nameList.forEach(function(name) {
-				runningTotal += targetName.maker(target.val());
+				if (name.checked && (name.value != "none")) {
+					name.checked = false;
+					totalPrice -= targetName.maker(name.value);
+					console.log(totalPrice);
+				}
 			});
-			totalPrice -= runningTotal;
 			break;
 		//if the target is a checkbox that doesn't equal "none"
 		case target.val():
+			document.getElementsByClassName(targetStringName)[0].children[5].checked = false;
+
 			let targetPrice = targetName.maker(target.val());
 			//if it's being checked
 			if (target.prop("checked")) {
 				totalPrice += targetPrice;
+				console.log(totalPrice);
 			//if it is being un-checked
-			} else if (target.is(":checked") === false) {
+			} else if (target.checked !== true) {
 				totalPrice -= targetPrice;
+				console.log(totalPrice);
+
 			}
 
 	}
