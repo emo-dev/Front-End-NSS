@@ -1,0 +1,15 @@
+{
+	"Earth": {
+	"Named": "The name 'Earth' is an English/German name which simply means the ground. It comes from the Old English words 'eor(th)e' and 'ertha'. In German it is 'erde'.",
+        "DFTS": "149,598,262 km",
+        "Orbit Period": "365.26 days",
+        "Diameter": "12,742 km",
+        "Discovered": "Since the beginning of human's existance",
+        "Mass": "5.97 X 10^24 Kg",
+        "Pressure": "1 atm",
+        "Atmosphere Comp": "78% Nitrogen, 21% Oxygen, 1% Argon, Other Gases",
+        "Satellites": "The Moon",
+        "Visited": "All probes/satellites left from Earth",
+        "Day": "1 Earth Day"
+	}
+}

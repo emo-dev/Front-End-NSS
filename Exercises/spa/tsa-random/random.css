@@ -1,0 +1,34 @@
+html {
+	height:100%; 
+	overflow:auto; /* triggers 100% height in Opera 9.5 */
+	overflow-y:scroll; /* creates a horizontal scrollbar, for a more consistent look & feel */
+}
+body {
+	height:100%; /* helps make height 100% */
+	margin: 0;
+	top: 0;
+	font:100%/1.5 Arial, Helvetica, sans-serif; /* 100% = 16px, 93.75% = 15px, 87.5% = 14px, 81.25% = 13px, 75% = 12px - font-size in % prevents IE's resize bug */
+	background:#FDFDFD;
+	color:#333;
+}
+
+
+.container {
+	background: lightgrey;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.centered-div {
+  	width: 450px;
+  	height: 450px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+	background-color: darkgrey;
+}

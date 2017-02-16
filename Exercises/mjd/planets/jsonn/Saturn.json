@@ -1,0 +1,15 @@
+{
+    "Saturn": {
+	"Named": "Roman god of agriculture",
+        "DFTS": "1,426,666,422 km",
+        "Orbit Period": "29.5 Earth years",
+        "Diameter": "116,464 km",
+        "Discovered": "Known to the ancients and visible to the naked eye.",
+        "Mass": "568 X 10^24 Kg",
+        "Pressure": ">>1000 atm",
+        "Atmosphere Comp": "96% Hydrogen, 3% Helium, 1% Other Gases, Sulfur gives gas clouds a yellow cast",
+        "Satellites": "Pan, Daphnis, Atlas, Prometheus, Pandora, Epimetheus, Janus, Aegaeon, Mimas, Methone, Anthe, Pallene, Enceladus, Tethys, Telesto, Calypso, Dione, Helene, Polydeuces, Rhea, Titan, Hyperion, Iapetus, Kiviuq, Ijiraq, Phoebe, Paaliaq, Skathi, Albiorix, S/2007 S 2, Bebhionn, Erriapo, Skoll, Siarnaq, Tarqeq, S/2004 S 13, Greip, Hyrrokkin, Jarnsaxa, Tarvos, Mundilfari, S/2006 S 1, S/2004 S 17, Bergelmir, Narvi, Suttungr, Hati, S/2004 S 12, Farbauti, Thrymr, Aegir, S/2007 S 3, Bestla, S/2004 S 7, S/2006 S 3, Fenrir, Surtur, Kari, Ymir, Loge, Fornjot",
+        "Visited": "Pioneer 11, Voyager 1-2, Cassini",
+        "Day": "Approx. 10.5 Earth hours"
+    }
+}
