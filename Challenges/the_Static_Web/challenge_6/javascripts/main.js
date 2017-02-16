@@ -10,8 +10,7 @@ function challenge6(numbersArray) {
 		}
 
 	var differenceBetween = sumOfSquares - Math.pow(squareOfSums, 2);
-	console.log(differenceBetween);
+	console.log("Result: sumOfSquares - squareOfSums", differenceBetween);
 	return differenceBetween;
-
 }
 challenge6(tenNaturalNumbers);
