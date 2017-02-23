@@ -1,0 +1,17 @@
+<div class="row">
+  <!-- TODO: Repeat over our todo list items and setup filtering by search term. Easy peasy -->
+  <div ng-repeat="item in mushrooms | filter: {description: searchText.search, edible: searchText.poisonous}">
+    <div style="background-color: {{item.color}}" class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-xs-2">
+          <h3 class="text-capitalize" ng-bind="item.name"></h3>
+        </div>
+        <div class="col-xs-2">
+          <p>Is this mushroom edible?? {{item.edible}}</p>
+        </div>
+        <div class="col-xs-8" ng-bind="item.description"></div>
+      </div>
+    </div>
+    <!-- {{item | json}} -->
+  </div>
+</div>
