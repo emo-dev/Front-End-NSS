@@ -27,7 +27,7 @@ app.config(function($routeProvider) {
 		})
 		.when('/list', {
 			templateUrl: '/partials/ListNotesView.html',
-			controller: 'ListnotesCtrl',
+			controller: 'ListNotesCtrl',
 		})
 		.when('/new', {
 			templateUrl: '/partials/NewNotesView.html',

@@ -1,0 +1,25 @@
+body, html {
+	height: 100%;
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li, a, span {
+	margin: 0;
+	padding: 0;
+}
+
+.nav-container {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border-bottom: 2px solid lightgrey;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.register-form {
+	margin-bottom: 1em;
+}
