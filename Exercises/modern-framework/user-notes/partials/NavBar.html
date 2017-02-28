@@ -1,0 +1,10 @@
+<div class="header clearfix" ng-controller="NavCtrl">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <li ng-show="checkLoginState() && currentPath('/new')" role="presentation"><a ng-href="#!/list">List</a></li>
+      <li ng-show="checkLoginState() && currentPath('/list')" role="presentation"><a ng-href="#!/new">New</a></li>
+      <li ng-show="checkLoginState()" ng-click="logout()" role="presentation"><a ng-href="#!/register">Logout</a></li>
+    </ul>
+  </nav>
+  <h3 class="text-muted left-border">User-Notes / {{userName}}</h3>
+</div>
