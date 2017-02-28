@@ -22,7 +22,10 @@ app.controller("NavCtrl", function($scope, $location, AuthFactory, UserStorageFa
 		}
 	};	
 
-	s.logout = () => AuthFactory.logoutUser();
+	s.logout = () => {
+		s.userName = '';
+		AuthFactory.logoutUser();
+	};
 	
 	
 
