@@ -8,37 +8,11 @@
 </head>
 <body ng-app="UserNotesApp">
 
-
-	<!-- <nav class="navbar navbar-default">
-	  <div class="container-fluid">	    
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">User Notes</a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <form class="navbar-form navbar-left">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search">
-	        </div>
-	      </form>	      
-	    </div>
-	  </div>	
-	</nav> -->
-	<div class="container nav-container">
-		<div class="header clearfix">
-	    <nav>
-	      <ul class="nav nav-pills pull-right">
-	        <li role="presentation"><a href="#">List</a></li>
-	        <li role="presentation"><a href="#">New</a></li>
-	        <li role="presentation"><a href="#">Login</a></li>
-	        <li role="presentation"><a href="#">Logout</a></li>
-	      </ul>
-	    </nav>
-	    <h3 class="text-muted">User-Notes</h3>
-	  </div>
+	<div class="container nav-container" ng-include="'partials/NavBar.html'">
 	</div>
 
 
-	<div class="container">
+	<div class="container notes-list">
 		<div class="row" ng-view></div>  
   </div>
 
@@ -53,13 +27,16 @@
 
 <script type="text/javascript" src="app/app.js"></script>
 <script type="text/javascript" src="app/values/fb-config.js"></script>
+<script type="text/javascript" src="app/filters/categoryFilter.js"></script>
 <script type="text/javascript" src="app/factories/AuthUserFactory.js"></script>
 <script type="text/javascript" src="app/factories/HandleFBDataFactory.js"></script>
+<script type="text/javascript" src="app/factories/UserStorageFactory.js"></script>
 
 <script type="text/javascript" src="app/controllers/ListNotesCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/NewNotesCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/RegisterCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
 
 </body>
 </html>

@@ -15,7 +15,26 @@ Each page has a controller directly related to it.
 
 var app = angular.module("UserNotesApp", ["ngRoute"]);
 
-app.config(function($routeProvider) {
+
+//resolve for the app to check whether or not a user is logged in
+let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
+	console.log("I am here");
+	AuthFactory.isAuthenticated()
+		.then((userExists) => {
+			console.log("userExists", userExists);
+			if (userExists) {
+				AuthFactory.changeLogin(true);
+				console.log("Authenticated, go ahead");
+				resolve();
+			} else {
+				console.log("Authentication rejected, go away.");
+				reject();
+			}
+		});
+});
+
+
+app.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/register', {
 			templateUrl: '/partials/RegisterView.html',
@@ -28,25 +47,19 @@ app.config(function($routeProvider) {
 		.when('/list', {
 			templateUrl: '/partials/ListNotesView.html',
 			controller: 'ListNotesCtrl',
+			resolve: {isAuth}
 		})
 		.when('/new', {
 			templateUrl: '/partials/NewNotesView.html',
 			controller: 'NewNotesCtrl',
+			resolve: {isAuth}
 		})
-		.otherwise('/register');
+		.otherwise('/login');
 });
 
 app.run(($location, FBCreds) => {
-
-	let authConfig = {
-		apiKey: FBCreds.apiKey,
-		authDomain: FBCreds.authDomain,
-		databaseURL: FBCreds.databaseURL
-	};
-
-	console.log("Here is your authConfig within app.js: ", authConfig);
-
-	firebase.initializeApp(authConfig);
+	console.log("Here is your authConfig within app.js: ", FBCreds);
+	firebase.initializeApp(FBCreds);
 });
 
 

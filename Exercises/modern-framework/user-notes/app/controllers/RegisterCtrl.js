@@ -1,7 +1,6 @@
 "use strict";
-console.log("RegisterCtrl is working");
 
-app.controller("RegisterCtrl", function($scope, AuthFactory) {
+app.controller("RegisterCtrl", function($scope, $window, AuthFactory, HandleFBDataFactory, UserStorageFactory) {
 		let s = $scope;
 		s.currentUser = false;
 
@@ -9,12 +8,16 @@ app.controller("RegisterCtrl", function($scope, AuthFactory) {
 			firstName: "",
 			lastName: "",
 			email: "",
+			userName: "",
 			password: "",
 			reEnterPassword: "",
 			birthDate: "",
 			birthMonth: "",
 			birthYear: ""
 		};
+
+		s.currentLocation = window.location;
+		console.log(s.currentLocation.hash);
 
 		s.days = [];
 		s.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -31,15 +34,13 @@ app.controller("RegisterCtrl", function($scope, AuthFactory) {
 			}
 		}
 
-		s.updateBirthInfo = (birthValue, location) => {
-			console.log("You clicked: ", birthValue);
-			s.userInfo[location] = birthValue;
-		};
+		s.updateBirthInfo = (birthValue, location) => s.userInfo[location] = birthValue;
 
 		s.registerNewUser = () => {
 
 			console.log("You clicked registerNewUser()");
-			if (s.userInfo.firstName.length === 0 || s.userInfo.lastName.length === 0 || s.userInfo.email.length === 0 || s.userInfo.password.length < 6 || s.userInfo.reEnterPassword.length < 6) {
+			console.log(s.userInfo);
+			if (s.userInfo.firstName.length === 0 || s.userInfo.lastName.length === 0 || s.userInfo.userName.length === 0 || s.userInfo.email.length === 0 || s.userInfo.password.length < 6 || s.userInfo.reEnterPassword.length < 6) {
 				console.log("Here is your user info: ", s.userInfo);
 				alert("Please fill out the required fields");
 			} else if (s.userInfo.password !== s.userInfo.reEnterPassword) {
@@ -48,13 +49,25 @@ app.controller("RegisterCtrl", function($scope, AuthFactory) {
 			} else {
 				console.log("Here is your user info: ", s.userInfo);
 				AuthFactory.createUser({email: s.userInfo.email, password: s.userInfo.password}).then(
-						(userData) => console.log("RegisterCtrl new user: ", userData),
+						(userData) => {
+							console.log("RegisterCtrl new user: ", userData);
+							AuthFactory.changeLogin(true);
+							s.userInfo.uid = userData.uid;
+							s.userInfo.password = "";
+							s.userInfo.reEnterPassword = "";
+							AuthFactory.setUserInfo(s.userInfo);
+							HandleFBDataFactory.postNewItem(s.userInfo, 'profiles').then(
+								(profileObjFromFirebase) => {
+									console.log("Here is your profile info from firebase: ", profileObjFromFirebase);
+									UserStorageFactory.setCurrentUserProfileInfo(s.userInfo);
+									s.userInfo = {};
+									$window.location.href = "#!/list";
+								});
+						},
 						(error) => console.log("Error creating user: ", error)
-					).then(
-						(myUser) => console.log("Here is my user within RegisterCtrl.js registerNewUser(): ", myUser)
 					);
-			}
-		};
+				}
+			};
 
 	
 		
